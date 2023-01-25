@@ -17,6 +17,8 @@ resource "azurerm_resource_group" "myresourcegroup" {
 
   tags = {
     environment = "Production"
+    Billable = "true"
+    Department = "burkey"
   }
 }
 
@@ -135,7 +137,10 @@ resource "azurerm_virtual_machine" "catapp" {
     disable_password_authentication = false
   }
 
-  tags = {}
+  tags = {    
+    Billable = "true"
+    Department = "burkey"
+    }
 
   # Added to allow destroy to work correctly.
   depends_on = [azurerm_network_interface_security_group_association.catapp-nic-sg-ass]
